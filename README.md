@@ -2,7 +2,7 @@
 
 - Updated to SourcePawn Transitional syntax
 - sm_forcematch can be executed even if there's a match running (see commit [9a52f010672aa2ac334f65439bf5057db4845397](https://github.com/keyCat/confoglcompmod/commit/9a52f010672aa2ac334f65439bf5057db4845397) if you want to revert this change)
-- Removed SpectatorHud, CheckVersion, UnreserveLobby modules
+- Removed SpectatorHud, CheckVersion, UnreserveLobby modules. You should use L4DToolz to handle reservation
 - Increased cvar size in CvarSettings and ClientSettings
 
 ##Confogl is a configurable competitive server plugin that aims to balance the Left 4 Dead 2 multiplayer gameplay.##
