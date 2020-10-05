@@ -53,7 +53,7 @@ public Action OFSLA_ForceMobSpawnTimer(Handle timer)
         MobSpawnTimeMin = FindConVar("z_mob_spawn_min_interval_normal");
         MobSpawnTimeMax = FindConVar("z_mob_spawn_max_interval_normal");
     }
-    L4D2_CTimerStart(L4D2CT_MobSpawnTimer, GetRandomFloat(GetConVarFloat(MobSpawnTimeMin), GetConVarFloat(MobSpawnTimeMax)));
+    L4D2_CTimerStart(L4D2CT_MobSpawnTimer, GetRandomFloat(MobSpawnTimeMin.FloatValue, MobSpawnTimeMax.FloatValue));
 }
 public Action L4D_OnFirstSurvivorLeftSafeArea(int client)
 {

@@ -47,7 +47,7 @@ void WS_OnGameFrame()
                     if (!WS_bPlayerInWater[client])
                     {
                         WS_bPlayerInWater[client] = true;
-                        SetEntPropFloat(client, Prop_Send, "m_flLaggedMovementValue", GetConVarFloat(WS_cvFactor));
+                        SetEntPropFloat(client, Prop_Send, "m_flLaggedMovementValue", WS_cvFactor.FloatValue);
                     }
                 }
                 else
@@ -86,7 +86,7 @@ public Action WS_JockeyRide(Event event, const char[] name, bool dontBroadcast)
     if (WS_bPlayerInWater[victim] && !WS_bJockeyInWater)
     {
         WS_bJockeyInWater = true;
-        SetEntPropFloat(jockey, Prop_Send, "m_flLaggedMovementValue", GetConVarFloat(WS_cvFactor));
+        SetEntPropFloat(jockey, Prop_Send, "m_flLaggedMovementValue", WS_cvFactor.FloatValue);
     }
     else if (!WS_bPlayerInWater[victim] && WS_bJockeyInWater)
     {

@@ -82,7 +82,7 @@ void RM_OnMapStart()
 
 void RM_OnClientPutInServer()
 {
-    if (!GetConVarBool(RM_cvAutoLoad) || RM_bIsAMatchActive) return;
+    if (!RM_cvAutoLoad.BoolValue || RM_bIsAMatchActive) return;
 
     char buffer[128];
     RM_cvAutoCfg.GetString(buffer, sizeof(buffer));
@@ -132,7 +132,7 @@ void RM_Match_Load()
 
     PrintToChatAll("\x01[\x05Confogl\x01] Match mode loaded!");
 
-    if (!RM_bIsMapRestarted && GetConVarBool(RM_cvDoRestart))
+    if (!RM_bIsMapRestarted && RM_cvDoRestart.BoolValue)
     {
         PrintToChatAll("\x01[\x05Confogl\x01] Restarting map!");
         CreateTimer(MAPRESTARTTIME,RM_Match_MapRestart_Timer);
@@ -259,7 +259,7 @@ public Action RM_Cmd_ResetMatch(int client, int args)
 
 public Action RM_Cmd_Match(int client, int args)
 {
-    if (RM_bIsMatchModeLoaded || (!IsVersus() && !IsScavenge()) || !GetConVarBool(RM_cvAllowVoting)) return Plugin_Handled;
+    if (RM_bIsMatchModeLoaded || (!IsVersus() && !IsScavenge()) || !RM_cvAllowVoting.BoolValue) return Plugin_Handled;
 
     int iTeam = GetClientTeam(client);
     if ((iTeam == TEAM_SURVIVOR || iTeam == TEAM_INFECTED) && !RM_bMatchRequest[iTeam - 2])

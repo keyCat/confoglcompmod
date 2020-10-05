@@ -50,7 +50,7 @@ public bool IsTankInPlay()
 
 Action GT_OnTankSpawn_Forward()
 {
-    if (IsPluginEnabled() && GetConVarBool(g_cvGT_RemoveEscapeTank) && g_bGT_FinaleVehicleIncoming)
+    if (IsPluginEnabled() && g_cvGT_RemoveEscapeTank.BoolValue && g_bGT_FinaleVehicleIncoming)
         return Plugin_Handled;
 
     return Plugin_Continue;
@@ -58,7 +58,7 @@ Action GT_OnTankSpawn_Forward()
 
 public Action L4D_OnCThrowActivate()
 {
-    if (IsPluginEnabled() && IsTankInPlay() && GetConVarBool(g_cvGT_BlockPunchRock) && GetClientButtons(g_iGT_TankClient) & IN_ATTACK)
+    if (IsPluginEnabled() && IsTankInPlay() && g_cvGT_BlockPunchRock.BoolValue && GetClientButtons(g_iGT_TankClient) & IN_ATTACK)
     {
         Debug_LogMessage("[GT] Blocking Haymaker on %L", g_iGT_TankClient);
         return Plugin_Handled;
@@ -110,8 +110,8 @@ Action GT_OnTryOfferingTankBot(bool &enterStasis)
     passes++;
     if (IsPluginEnabled())
     {
-        if (GetConVarBool(g_cvGT_Enabled)) enterStasis = false;
-        if (GetConVarBool(g_cvGT_RemoveEscapeTank) && g_bGT_FinaleVehicleIncoming) return Plugin_Handled;
+        if (g_cvGT_Enabled.BoolValue) enterStasis = false;
+        if (g_cvGT_RemoveEscapeTank.BoolValue && g_bGT_FinaleVehicleIncoming) return Plugin_Handled;
     }
     return Plugin_Continue;
 }
