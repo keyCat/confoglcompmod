@@ -1,4 +1,6 @@
-#Confogl 2.2.3#
+# Confogl 2.2.4
+
+Updated to SourcePawn Transitional syntax.
 
 ##Confogl is a configurable competitive server plugin that aims to balance the Left 4 Dead 2 multiplayer gameplay.##
 
