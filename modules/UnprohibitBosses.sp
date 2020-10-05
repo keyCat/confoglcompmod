@@ -3,7 +3,12 @@
 
 #include <sourcemod>
 #include <sdktools>
-#include <left4dhooks>
+
+#if USE_LEFT4DHOOKS
+    #include <left4dhooks>
+#else
+    #include <left4downtown>
+#endif
 
 ConVar          UB_cvEnable;
 bool            UB_bEnabled = true;

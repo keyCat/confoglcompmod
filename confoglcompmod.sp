@@ -1,6 +1,8 @@
 #pragma semicolon 1
 #pragma newdecls required
 
+#define USE_LEFT4DHOOKS 1
+
 #if !defined(DEBUG_ALL)
 #define DEBUG_ALL       0
 #endif
@@ -8,7 +10,13 @@
 #include <sourcemod>
 #include <sdktools>
 #include <sdkhooks>
-#include <left4dhooks>
+
+#if USE_LEFT4DHOOKS
+    #include <left4dhooks>
+#else
+    #include <left4downtown>
+#endif
+
 #include "includes/constants.sp"
 #include "includes/functions.sp"
 #include "includes/debug.sp"

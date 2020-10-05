@@ -3,7 +3,12 @@
 
 #include <sourcemod>
 #include <sdktools>
-#include <left4dhooks>
+
+#if USE_LEFT4DHOOKS
+    #include <left4dhooks>
+#else
+    #include <left4downtown>
+#endif
 
 public Action L4D_OnSpawnTank(const float vector[3], const float qangle[3])
 {
