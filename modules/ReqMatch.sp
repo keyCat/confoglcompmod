@@ -102,9 +102,6 @@ void RM_Match_Load()
     }
 
     FindConVar("sb_all_bot_game").IntValue = 1;
-    // FIXME quick an dirty fix for OnPluginEnd() not being called because of Left4Dhooks unload
-    ServerCommand("confogl_resetclientcvars");
-    ServerCommand("confogl_resetcvars");
 
     char sBuffer[128];
 
